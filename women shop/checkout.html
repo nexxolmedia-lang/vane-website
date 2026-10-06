@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>پرداخت و ثبت سفارش | VĀNE</title>
+  <meta name="description" content="ثبت سفارش در VĀNE — نسخه‌ی نمایشی بدون درگاه پرداخت واقعی.">
+  <link rel="canonical" href="https://vane.example/checkout.html">
+  <meta name="theme-color" content="#F3F0E9">
+  <meta name="robots" content="noindex, nofollow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VĀNE">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:title" content="پرداخت و ثبت سفارش | VĀNE">
+  <meta property="og:description" content="ثبت سفارش در VĀNE — نسخه‌ی نمایشی بدون درگاه پرداخت واقعی.">
+  <meta property="og:url" content="https://vane.example/checkout.html">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1596451984287-7a274406cbca?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=75">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="assets/icons/logo-mark-obsidian.svg" color="#171716">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Inter:wght@300;400;500&amp;family=Vazirmatn:wght@200;300;400;500&amp;display=swap">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script>document.documentElement.classList.add('js');try{if(!sessionStorage.getItem('vane:visited')){document.documentElement.classList.add('first-visit');sessionStorage.setItem('vane:visited','1')}}catch(e){}</script>
+  <!-- Classic deferred scripts (not ES modules) so the site also runs from file:// — order matters -->
+  <script defer src="data/media.js"></script>
+  <script defer src="data/products.js"></script>
+  <script defer src="data/collections.js"></script>
+  <script defer src="data/articles.js"></script>
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/layout.js"></script>
+  <script defer src="js/products.js"></script>
+  <script defer src="js/accordion.js"></script>
+  <script defer src="js/size-table.js"></script>
+  <script defer src="js/newsletter.js"></script>
+  <script defer src="js/forms.js"></script>
+  <script defer src="js/cart.js"></script>
+  <script defer src="js/wishlist.js"></script>
+  <script defer src="js/search.js"></script>
+  <script defer src="js/navigation.js"></script>
+  <script defer src="js/animations.js"></script>
+  <script defer src="js/filters.js"></script>
+  <script defer src="js/product-page.js"></script>
+  <script defer src="js/collections.js"></script>
+  <script defer src="js/journal.js"></script>
+  <script defer src="js/checkout.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body data-page="checkout">
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="مسیر صفحه">
+        <ol><li><a href="index.html">خانه</a></li><li><a href="cart.html">سبد خرید</a></li><li><span aria-current="page">پرداخت</span></li></ol>
+      </nav>
+      <header class="page-head">
+        <h1 class="page-head__title"><span lang="en">Checkout</span><span class="page-head__fa">ثبت سفارش</span></h1>
+      </header>
+
+      <p class="demo-note" role="note"><strong lang="en">DEMO</strong><span>این صفحه نمایشی است. هیچ پرداخت واقعی انجام نمی‌شود و اطلاعات شما فقط در همین مرورگر می‌ماند.</span></p>
+
+      <div class="checkout" data-checkout-layout>
+        <form class="checkout__form" data-checkout-form novalidate>
+          <section class="checkout-step" aria-labelledby="step-contact">
+            <h2 class="checkout-step__title" id="step-contact"><span class="checkout-step__num">01</span><span lang="en">Contact</span> <span class="checkout-step__fa">اطلاعات تماس</span></h2>
+            <div class="form-grid">
+              <div class="field"><label for="co-email">ایمیل</label><input id="co-email" name="email" type="email" autocomplete="email" inputmode="email" required dir="ltr"></div>
+              <div class="field"><label for="co-phone">شماره‌ی موبایل</label><input id="co-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required data-validate="phone" dir="ltr" placeholder="0912 000 0000"></div>
+            </div>
+          </section>
+
+          <section class="checkout-step" aria-labelledby="step-address">
+            <h2 class="checkout-step__title" id="step-address"><span class="checkout-step__num">02</span><span lang="en">Address</span> <span class="checkout-step__fa">نشانی</span></h2>
+            <div class="form-grid">
+              <div class="field field--full"><label for="co-name">نام و نام خانوادگی گیرنده</label><input id="co-name" name="fullName" type="text" autocomplete="name" required data-validate="name"></div>
+              <div class="field">
+                <label for="co-province">استان</label>
+                <select id="co-province" name="province" autocomplete="address-level1" required>
+                  <option value="">انتخاب استان</option>
+                  <option>آذربایجان شرقی</option>
+                  <option>تهران</option>
+                  <option>اصفهان</option>
+                  <option>فارس</option>
+                  <option>خراسان رضوی</option>
+                  <option>البرز</option>
+                  <option>گیلان</option>
+                  <option>مازندران</option>
+                  <option>آذربایجان غربی</option>
+                  <option>سایر استان‌ها</option>
+                </select>
+              </div>
+              <div class="field"><label for="co-city">شهر</label><input id="co-city" name="city" type="text" autocomplete="address-level2" required></div>
+              <div class="field field--full"><label for="co-address">نشانی کامل</label><input id="co-address" name="address" type="text" autocomplete="street-address" required minlength="10"></div>
+              <div class="field"><label for="co-postal">کد پستی ۱۰ رقمی</label><input id="co-postal" name="postal" type="text" inputmode="numeric" autocomplete="postal-code" required data-validate="postal" dir="ltr"></div>
+              <div class="field"><label for="co-unit">پلاک و واحد <span class="field__hint">(اختیاری)</span></label><input id="co-unit" name="unit" type="text"></div>
+            </div>
+          </section>
+
+          <section class="checkout-step" aria-labelledby="step-shipping">
+            <h2 class="checkout-step__title" id="step-shipping"><span class="checkout-step__num">03</span><span lang="en">Shipping</span> <span class="checkout-step__fa">روش ارسال</span></h2>
+            <fieldset class="radio-cards">
+              <legend class="visually-hidden">روش ارسال</legend>
+              <label class="radio-card">
+                <input type="radio" name="shipping" value="standard" checked>
+                <span><span class="radio-card__title">ارسال استاندارد</span><span class="radio-card__desc">تبریز ۱ تا ۲ روز، سایر شهرها ۳ تا ۵ روز کاری</span></span>
+                <span class="radio-card__price" data-ship-price="standard"></span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="shipping" value="express">
+                <span><span class="radio-card__title">ارسال سریع</span><span class="radio-card__desc">۱ تا ۲ روز کاری، با پیک اختصاصی</span></span>
+                <span class="radio-card__price" data-ship-price="express"></span>
+              </label>
+            </fieldset>
+          </section>
+
+          <section class="checkout-step" aria-labelledby="step-payment">
+            <h2 class="checkout-step__title" id="step-payment"><span class="checkout-step__num">04</span><span lang="en">Payment</span> <span class="checkout-step__fa">پرداخت</span></h2>
+            <fieldset class="radio-cards">
+              <legend class="visually-hidden">روش پرداخت</legend>
+              <label class="radio-card">
+                <input type="radio" name="payment" value="demo" checked>
+                <span><span class="radio-card__title">درگاه پرداخت آزمایشی</span><span class="radio-card__desc">هیچ مبلغی کسر نمی‌شود؛ فقط برای نمایش روند خرید</span></span>
+                <span class="radio-card__price"></span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="payment" value="cod">
+                <span><span class="radio-card__title">پرداخت در محل</span><span class="radio-card__desc">فقط برای سفارش‌های داخل تبریز</span></span>
+                <span class="radio-card__price"></span>
+              </label>
+            </fieldset>
+            <div class="field" style="margin-top:var(--space-md)">
+              <label class="check">
+                <input type="checkbox" id="co-terms" name="terms" required data-required="برای ثبت سفارش، پذیرش شرایط فروش لازم است.">
+                <span class="check__box" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check"></use></svg></span>
+                <span class="check__label">شرایط فروش و <a class="link-button" href="contact.html#returns">بازگرداندن کالا</a> را می‌پذیرم.</span>
+              </label>
+            </div>
+            <div class="checkout-pay">
+              <button type="submit" class="button button--block" data-pay><span data-pay-label>پرداخت آزمایشی و ثبت سفارش</span></button>
+              <p class="checkout-pay__legal">با ثبت سفارش، یک سفارش نمایشی در این مرورگر ذخیره می‌شود. هیچ اطلاعاتی به سرور ارسال نمی‌شود.</p>
+            </div>
+          </section>
+        </form>
+
+        <aside class="checkout__review order-summary" aria-labelledby="review-title">
+          <h2 class="order-summary__title" id="review-title"><span class="checkout-step__num">05</span> <span lang="en">Order review</span></h2>
+          <div data-order-review aria-live="polite"></div>
+          <a class="link-button" href="cart.html">ویرایش سبد خرید</a>
+        </aside>
+      </div>
+
+      <div class="empty-state empty-state--page" data-checkout-empty hidden>
+        <p class="empty-state__title" lang="en">Your bag is empty.</p>
+        <p>برای ثبت سفارش، ابتدا قطعه‌ای به سبد اضافه کنید.</p>
+        <a class="button" href="shop.html"><span lang="en">Explore clothing</span></a>
+      </div>
+    </div>
+  </main>
+  <noscript>
+    <p class="container" style="padding:24px 0">برای تجربه‌ی کامل فروشگاه VĀNE (سبد خرید، فیلترها و جستجو)، جاوااسکریپت مرورگر را فعال کنید.</p>
+  </noscript>
+</body>
+</html>

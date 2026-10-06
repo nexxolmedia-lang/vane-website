@@ -1,0 +1,142 @@
+/* ==========================================================================
+   Typography — editorial, high-contrast, controlled
+   Latin: Cormorant Garamond (display) + Inter (UI)
+   Persian: Estedad / Peyda if installed, Vazirmatn web font fallback
+   ========================================================================== */
+
+body {
+  font-family: var(--font-text);
+  font-size: var(--fs-base);
+  line-height: var(--lh-text);
+  font-weight: 300;
+  font-feature-settings: 'ss01', 'cv11';
+}
+
+:lang(en) {
+  line-height: inherit;
+}
+
+strong,
+b {
+  font-weight: 500;
+}
+
+/* Display scale */
+.display-xl,
+.display-l,
+.display-m,
+.display-s {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: var(--tracking-display);
+  line-height: var(--lh-tight);
+  text-transform: uppercase;
+}
+
+.display-xl { font-size: var(--fs-display); }
+.display-l { font-size: var(--fs-2xl); }
+.display-m { font-size: var(--fs-xl); line-height: var(--lh-heading); }
+.display-s { font-size: var(--fs-lg); line-height: var(--lh-heading); }
+
+.display-fa {
+  font-family: var(--font-fa);
+  font-weight: 200;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.italic {
+  font-style: italic;
+  text-transform: none;
+}
+
+/* UI labels */
+.eyebrow,
+.label {
+  font-family: var(--font-ui);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  letter-spacing: var(--tracking-ui);
+  line-height: var(--lh-ui);
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  color: var(--color-muted);
+}
+
+.eyebrow--light {
+  color: rgba(250, 249, 246, 0.82);
+}
+
+.lead {
+  font-size: var(--fs-lg);
+  font-weight: 200;
+  line-height: 1.75;
+}
+
+/* Long-form Persian copy */
+.prose {
+  font-size: var(--fs-md);
+  line-height: 2.05;
+}
+
+.prose > * + * {
+  margin-block-start: var(--space-md);
+}
+
+.prose h2 {
+  font-family: var(--font-fa);
+  font-size: var(--fs-lg);
+  font-weight: 400;
+  line-height: 1.5;
+  margin-block-start: var(--space-lg);
+}
+
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
+}
+
+.dash-list li {
+  position: relative;
+  padding-inline-start: 1.4em;
+}
+
+.dash-list li + li {
+  margin-block-start: 0.35em;
+}
+
+.dash-list li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 1em;
+  width: 0.7em;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.pull-quote {
+  font-family: var(--font-fa);
+  font-size: var(--fs-xl);
+  font-weight: 200;
+  line-height: 1.45;
+  padding-block: var(--space-lg);
+  border-block: 1px solid var(--color-line);
+  margin-block: var(--space-lg) !important;
+}
+
+
+/* English sentences set inside RTL blocks keep their punctuation at the end */
+.empty-state__title,
+.cart-empty__title,
+.newsletter-success__title,
+.empty-state .display-m,
+.not-found .display-m {
+  unicode-bidi: plaintext;
+  text-align: right;
+}

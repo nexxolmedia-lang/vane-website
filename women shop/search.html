@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>جستجو در محصولات | VĀNE</title>
+  <meta name="description" content="جستجو در پوشاک زنانه VĀNE: کت، پالتو، شلوار، پیراهن و دامن زنانه.">
+  <link rel="canonical" href="https://vane.example/search.html">
+  <meta name="theme-color" content="#F3F0E9">
+  <meta name="robots" content="noindex, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VĀNE">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:title" content="جستجو در محصولات | VĀNE">
+  <meta property="og:description" content="جستجو در پوشاک زنانه VĀNE: کت، پالتو، شلوار، پیراهن و دامن زنانه.">
+  <meta property="og:url" content="https://vane.example/search.html">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1596451984287-7a274406cbca?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=75">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="assets/icons/logo-mark-obsidian.svg" color="#171716">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Inter:wght@300;400;500&amp;family=Vazirmatn:wght@200;300;400;500&amp;display=swap">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script>document.documentElement.classList.add('js');try{if(!sessionStorage.getItem('vane:visited')){document.documentElement.classList.add('first-visit');sessionStorage.setItem('vane:visited','1')}}catch(e){}</script>
+  <!-- Classic deferred scripts (not ES modules) so the site also runs from file:// — order matters -->
+  <script defer src="data/media.js"></script>
+  <script defer src="data/products.js"></script>
+  <script defer src="data/collections.js"></script>
+  <script defer src="data/articles.js"></script>
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/layout.js"></script>
+  <script defer src="js/products.js"></script>
+  <script defer src="js/accordion.js"></script>
+  <script defer src="js/size-table.js"></script>
+  <script defer src="js/newsletter.js"></script>
+  <script defer src="js/forms.js"></script>
+  <script defer src="js/cart.js"></script>
+  <script defer src="js/wishlist.js"></script>
+  <script defer src="js/search.js"></script>
+  <script defer src="js/navigation.js"></script>
+  <script defer src="js/animations.js"></script>
+  <script defer src="js/filters.js"></script>
+  <script defer src="js/product-page.js"></script>
+  <script defer src="js/collections.js"></script>
+  <script defer src="js/journal.js"></script>
+  <script defer src="js/checkout.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body data-page="search">
+  <main id="main">
+    <div class="container" data-search-page>
+      <nav class="breadcrumbs" aria-label="مسیر صفحه">
+        <ol><li><a href="index.html">خانه</a></li><li><span aria-current="page">جستجو</span></li></ol>
+      </nav>
+      <header class="page-head">
+        <h1 class="visually-hidden">جستجو در محصولات VĀNE</h1>
+        <form class="search-page__form" role="search" data-search-page-form>
+          <label for="search-page-input" class="visually-hidden">عبارت جستجو</label>
+          <input id="search-page-input" name="q" type="search" placeholder="SEARCH VĀNE" autocomplete="off" spellcheck="false" aria-describedby="search-page-summary">
+          <button type="submit" class="search-form__submit"><svg class="icon icon-search" aria-hidden="true" focusable="false"><use href="#i-search"></use></svg><span class="visually-hidden">جستجو</span></button>
+        </form>
+        <ul class="chip-list" style="margin-top:var(--space-md)" aria-label="پیشنهادها">
+          <li><button type="button" class="chip" data-search-term="Blazer" lang="en">Blazer</button></li>
+          <li><button type="button" class="chip" data-search-term="Black dress" lang="en">Black dress</button></li>
+          <li><button type="button" class="chip" data-search-term="FORM" lang="en">FORM</button></li>
+          <li><button type="button" class="chip" data-search-term="Autumn" lang="en">Autumn</button></li>
+          <li><button type="button" class="chip" data-search-term="Trouser" lang="en">Trouser</button></li>
+        </ul>
+        <p class="search-page__summary" id="search-page-summary" data-search-page-summary aria-live="polite"></p>
+      </header>
+      <ul class="product-grid" data-search-page-results></ul>
+      <div class="empty-state" data-search-empty hidden>
+        <p class="empty-state__title" lang="en">No results.</p>
+        <p>عبارت دیگری را امتحان کنید یا همه‌ی پوشاک را ببینید.</p>
+        <a class="button" href="shop.html"><span lang="en">Explore clothing</span></a>
+      </div>
+    </div>
+  </main>
+  <noscript>
+    <p class="container" style="padding:24px 0">برای تجربه‌ی کامل فروشگاه VĀNE (سبد خرید، فیلترها و جستجو)، جاوااسکریپت مرورگر را فعال کنید.</p>
+  </noscript>
+</body>
+</html>

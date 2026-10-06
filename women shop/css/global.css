@@ -1,0 +1,318 @@
+/* ==========================================================================
+   Global base, utilities, media frames and motion primitives
+   ========================================================================== */
+
+html {
+  background: var(--color-bg);
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + var(--space-sm));
+}
+
+html.is-locked {
+  overflow: hidden;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+main {
+  display: block;
+  min-height: 60vh;
+}
+
+/* Focus: precise, visible, never removed */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+[data-theme="dark"] :focus-visible,
+.is-overlay:not(.is-solid) :focus-visible {
+  outline-color: var(--color-white);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: var(--space-xs);
+  inset-inline-start: var(--space-xs);
+  z-index: calc(var(--z-loader) + 1);
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-size: var(--fs-sm);
+  transform: translateY(-160%);
+  transition: transform var(--transition-fast) var(--ease-out);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* Icons from the sprite */
+.icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  fill: none;
+}
+
+.icon--dir:dir(rtl),
+.icon--back:dir(ltr) {
+  transform: scaleX(-1);
+}
+
+/* Media frame: holds every photograph, owns aspect ratio + placeholder */
+.media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--color-placeholder);
+  isolation: isolate;
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--transition-slow) var(--ease-out), transform var(--transition-slower) var(--ease-out);
+}
+
+.media img.is-loaded {
+  opacity: 1;
+}
+
+/* Branded fallback when a remote image cannot load */
+.media.is-broken {
+  background: linear-gradient(to bottom, #E2DCD2, #D3CCC1);
+}
+
+.media.is-broken::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 28%;
+  max-width: 120px;
+  aspect-ratio: 322 / 126;
+  background: url('../assets/icons/logo-wordmark-obsidian.svg') center / contain no-repeat;
+  opacity: 0.22;
+}
+
+.media img.is-broken {
+  visibility: hidden;
+}
+
+/* Container + section rhythm */
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-space);
+}
+
+.section--tight {
+  padding-block: var(--space-xl);
+}
+
+.rule {
+  height: 1px;
+  background: var(--color-line);
+  border: 0;
+}
+
+/* ---------- Motion primitives ---------- */
+
+/* Fade-up */
+.js [data-reveal]:not([data-reveal="image"]) {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--transition-slow) var(--ease-out), transform var(--transition-slower) var(--ease-out);
+  transition-delay: calc(var(--d, 0) * 90ms);
+}
+
+.js [data-reveal].is-visible:not([data-reveal="image"]) {
+  opacity: 1;
+  transform: none;
+}
+
+/* Image reveal: a curtain lifts, the image settles */
+/* (A curtain pseudo-element is used rather than clip-path on the element itself,
+   because IntersectionObserver treats a fully clipped target as not intersecting.) */
+.js [data-reveal="image"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--color-bg);
+  transform-origin: top;
+  transition: transform var(--transition-slower) var(--ease-editorial);
+  pointer-events: none;
+}
+
+.js .strip [data-reveal="image"]::before {
+  background: var(--color-text);
+}
+
+.js [data-reveal="image"] img {
+  transform: scale(1.12);
+}
+
+.js [data-reveal="image"].is-visible::before {
+  transform: scaleY(0);
+}
+
+.js [data-reveal="image"].is-visible img {
+  transform: scale(1);
+}
+
+/* Word-by-word text reveal */
+[data-split] .word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-block-end: 0.06em;
+}
+
+[data-split] .word > span {
+  display: inline-block;
+  transform: translateY(105%);
+  transition: transform var(--transition-slower) var(--ease-out);
+  transition-delay: calc(var(--w, 0) * 55ms);
+}
+
+[data-split].is-visible .word > span {
+  transform: none;
+}
+
+/* Line reveal used in heroes (runs on load, no JS needed) */
+.line {
+  display: block;
+  overflow: hidden;
+}
+
+.line > span {
+  display: block;
+  animation: line-up var(--transition-slower) var(--ease-out) both;
+  animation-delay: calc(0.25s + var(--l, 0) * 0.12s);
+}
+
+.first-visit .line > span {
+  animation-delay: calc(1.25s + var(--l, 0) * 0.12s);
+}
+
+@keyframes line-up {
+  from { transform: translateY(110%); }
+  to { transform: none; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Page entrance */
+.js main {
+  animation: fade-in var(--transition-slow) var(--ease-out) both;
+}
+
+/* First visit of the session: ivory curtain with the wordmark, then it lifts */
+.first-visit body::before,
+.first-visit body::after {
+  content: '';
+  position: fixed;
+  z-index: var(--z-loader);
+  pointer-events: none;
+}
+
+.first-visit body::before {
+  inset: 0;
+  background: var(--color-bg);
+  animation: curtain 1.4s var(--ease-editorial) 0.2s both;
+}
+
+.first-visit body::after {
+  inset: 0;
+  margin: auto;
+  width: min(220px, 50vw);
+  aspect-ratio: 322 / 126;
+  background: url('../assets/icons/logo-wordmark-obsidian.svg') center / contain no-repeat;
+  animation: loader-mark 1.3s var(--ease-out) both;
+}
+
+@keyframes curtain {
+  0%, 55% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+@keyframes loader-mark {
+  0% { opacity: 0; transform: translateY(8px); }
+  35%, 60% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: translateY(-12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .first-visit body::before,
+  .first-visit body::after {
+    display: none;
+  }
+
+  .js [data-reveal="image"]::before {
+    display: none;
+  }
+
+  .js [data-reveal],
+  .js [data-reveal="image"] img,
+  [data-split] .word > span {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
